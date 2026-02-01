@@ -1,1 +1,620 @@
 # Love-Message
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Jaan - Nisha ❤️</title>
+    <meta property="og:title" content="A Special Message For Nisha ❤️">
+    <meta property="og:description" content="A heartfelt apology and love message...">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=1200">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Sacramento&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #ffeef8 0%, #f3e5f5 50%, #ffe0e6 100%);
+            min-height: 100vh;
+        }
+
+        /* Share Link Banner */
+        .share-banner {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(255, 107, 157, 0.3);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 107, 157, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .share-banner:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 107, 157, 0.4);
+        }
+
+        .share-text {
+            font-size: 14px;
+            color: #8e44ad;
+            font-weight: 600;
+        }
+
+        .copy-btn {
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .copy-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);
+        }
+
+        .copy-btn.copied {
+            background: #27ae60;
+        }
+
+        /* Opening Screen */
+        #opening-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, #ffe4ec 0%, #f3e5f5 50%, #ffe0e6 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 1.5s ease-in-out, visibility 1.5s;
+        }
+
+        #opening-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .start-container {
+            text-align: center;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .heart-beat {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            position: relative;
+            transform: rotate(-45deg);
+            margin: 0 auto 40px;
+            animation: heartbeat 1.5s ease-in-out infinite;
+            box-shadow: 0 10px 40px rgba(255, 107, 157, 0.4);
+        }
+
+        .heart-beat::before,
+        .heart-beat::after {
+            content: '';
+            width: 120px;
+            height: 120px;
+            position: absolute;
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            border-radius: 50%;
+        }
+
+        .heart-beat::before {
+            top: -60px;
+            left: 0;
+        }
+
+        .heart-beat::after {
+            left: 60px;
+            top: 0;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: rotate(-45deg) scale(1); }
+            25% { transform: rotate(-45deg) scale(1.1); }
+            50% { transform: rotate(-45deg) scale(1.2); }
+            75% { transform: rotate(-45deg) scale(1.1); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .start-btn {
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            color: white;
+            border: none;
+            padding: 20px 50px;
+            font-size: 24px;
+            font-family: 'Playfair Display', serif;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 25px rgba(255, 107, 157, 0.5);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 5px 25px rgba(255, 107, 157, 0.5); }
+            to { box-shadow: 0 5px 40px rgba(255, 107, 157, 0.8), 0 0 60px rgba(255, 107, 157, 0.4); }
+        }
+
+        .start-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 35px rgba(255, 107, 157, 0.6);
+        }
+
+        /* Floating Hearts Background */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            color: rgba(255, 107, 157, 0.3);
+            animation: float 15s infinite linear;
+            font-size: 20px;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(0.5);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(720deg) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        /* Main Content */
+        #main-content {
+            display: none;
+            min-height: 100vh;
+            position: relative;
+            z-index: 2;
+            padding: 60px 20px;
+        }
+
+        #main-content.visible {
+            display: block;
+            animation: fadeIn 2s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .content-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .love-message {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 60px 40px;
+            box-shadow: 0 20px 60px rgba(255, 107, 157, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .message-line {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            color: #8e44ad;
+            margin: 25px 0;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideIn 1s ease-out forwards;
+            line-height: 1.4;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .message-line:nth-child(1) { animation-delay: 0.5s; }
+        .message-line:nth-child(2) { animation-delay: 1.5s; }
+        .message-line:nth-child(3) { animation-delay: 2.5s; }
+        .message-line:nth-child(4) { animation-delay: 3.5s; }
+        .message-line:nth-child(5) { animation-delay: 4.5s; }
+        .message-line:nth-child(6) { animation-delay: 5.5s; }
+        .message-line:nth-child(7) { animation-delay: 6.5s; }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .highlight {
+            color: #c44569;
+            font-weight: 600;
+        }
+
+        .broken-heart {
+            color: #e74c3c;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+
+        .rose {
+            color: #e74c3c;
+            font-size: 1.2em;
+            display: inline-block;
+            animation: sway 3s ease-in-out infinite;
+        }
+
+        @keyframes sway {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        /* Ending Section */
+        .ending-section {
+            margin-top: 80px;
+            padding: 40px;
+            opacity: 0;
+            animation: fadeInLast 2s ease-out 8s forwards;
+        }
+
+        @keyframes fadeInLast {
+            to { opacity: 1; }
+        }
+
+        .final-question {
+            font-family: 'Sacramento', cursive;
+            font-size: 3rem;
+            color: #8e44ad;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 8px rgba(142, 68, 173, 0.2);
+        }
+
+        .final-heart {
+            font-size: 80px;
+            color: #ff6b9d;
+            display: inline-block;
+            animation: heartbeatFinal 1.5s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(255, 107, 157, 0.6));
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .final-heart:hover {
+            transform: scale(1.2);
+        }
+
+        @keyframes heartbeatFinal {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 20px rgba(255, 107, 157, 0.6)); }
+            25% { transform: scale(1.15); filter: drop-shadow(0 0 30px rgba(255, 107, 157, 0.8)); }
+            50% { transform: scale(1.3); filter: drop-shadow(0 0 40px rgba(255, 107, 157, 1)); }
+            75% { transform: scale(1.15); filter: drop-shadow(0 0 30px rgba(255, 107, 157, 0.8)); }
+        }
+
+        .pleading-face {
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .share-banner {
+                top: 10px;
+                right: 10px;
+                left: 10px;
+                justify-content: space-between;
+            }
+            .message-line {
+                font-size: 1.8rem;
+            }
+            .final-question {
+                font-size: 2.2rem;
+            }
+            .love-message {
+                padding: 40px 25px;
+            }
+            .heart-beat {
+                width: 80px;
+                height: 80px;
+            }
+            .heart-beat::before,
+            .heart-beat::after {
+                width: 80px;
+                height: 80px;
+            }
+            .heart-beat::before {
+                top: -40px;
+            }
+            .heart-beat::after {
+                left: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .message-line {
+                font-size: 1.5rem;
+            }
+            .start-btn {
+                padding: 15px 35px;
+                font-size: 20px;
+            }
+            .share-text {
+                font-size: 12px;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #ffeef8;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Share Link Banner -->
+    <div class="share-banner" id="shareBanner" style="display: none;">
+        <span class="share-text">Share this love message 💌</span>
+        <button class="copy-btn" onclick="copyLink()">
+            <span>📋</span> <span id="copyText">Copy Link</span>
+        </button>
+    </div>
+
+    <!-- Floating Hearts Background -->
+    <div class="floating-hearts" id="floating-hearts"></div>
+
+    <!-- Opening Screen -->
+    <div id="opening-screen">
+        <div class="start-container">
+            <div class="heart-beat"></div>
+            <button class="start-btn" onclick="startJourney()">
+                Start <span style="font-size: 1.2em;">❤️</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content">
+        <div class="content-wrapper">
+            <div class="love-message">
+                <div class="message-line">
+                    Sorry meri jaan…
+                </div>
+                <div class="message-line">
+                    Mujh se jo bhi ghalti hui ho, dil se maafi chahta hoon <span class="broken-heart">💔</span>
+                </div>
+                <div class="message-line">
+                    Main hamesha aap ke saath rehna chahta hoon,
+                </div>
+                <div class="message-line">
+                    Har khushi, har mushkil, har pal mein <span style="color: #bdc3c7;">🤍</span>
+                </div>
+                <div class="message-line">
+                    Aap meri zindagi ki sab se khoobsurat wajah ho.
+                </div>
+                <div class="message-line">
+                    Aap ke baghair sab adhoora lagta hai…
+                </div>
+                <div class="message-line">
+                    I love you so much, <span class="highlight">Nisha</span> <span class="rose">🌹</span><br>
+                    Aaj, kal aur hamesha <span style="color: #e74c3c;">❤️</span>
+                </div>
+            </div>
+
+            <!-- Ending Section -->
+            <div class="ending-section">
+                <div class="final-question">
+                    Kya aap mujhe maaf kar sakti ho? <span class="pleading-face">🥺</span><span style="color: #e74c3c;">❤️</span>
+                </div>
+                <div class="final-heart" onclick="createBurst(event)">❤️</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create floating hearts
+        function createFloatingHearts() {
+            const container = document.getElementById('floating-hearts');
+            const heartSymbols = ['❤️', '💖', '💕', '💗', '💓', '💝'];
+            
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                heart.style.animationDelay = Math.random() * 15 + 's';
+                heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                container.appendChild(heart);
+            }
+        }
+
+        // Start the journey
+        function startJourney() {
+            const openingScreen = document.getElementById('opening-screen');
+            const mainContent = document.getElementById('main-content');
+            const shareBanner = document.getElementById('shareBanner');
+            
+            openingScreen.classList.add('hidden');
+            
+            setTimeout(() => {
+                mainContent.classList.add('visible');
+                shareBanner.style.display = 'flex';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 500);
+        }
+
+        // Copy link functionality
+        function copyLink() {
+            const currentUrl = window.location.href;
+            const btn = document.querySelector('.copy-btn');
+            const copyText = document.getElementById('copyText');
+            
+            navigator.clipboard.writeText(currentUrl).then(() => {
+                btn.classList.add('copied');
+                copyText.textContent = 'Copied!';
+                
+                setTimeout(() => {
+                    btn.classList.remove('copied');
+                    copyText.textContent = 'Copy Link';
+                }, 2000);
+            }).catch(() => {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = currentUrl;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                btn.classList.add('copied');
+                copyText.textContent = 'Copied!';
+                setTimeout(() => {
+                    btn.classList.remove('copied');
+                    copyText.textContent = 'Copy Link';
+                }, 2000);
+            });
+        }
+
+        // Create burst effect on final heart click
+        function createBurst(e) {
+            const heart = e.target;
+            const rect = heart.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            
+            for (let i = 0; i < 12; i++) {
+                const particle = document.createElement('div');
+                particle.innerHTML = ['❤️', '💖', '✨', '💕'][Math.floor(Math.random() * 4)];
+                particle.style.position = 'fixed';
+                particle.style.left = centerX + 'px';
+                particle.style.top = centerY + 'px';
+                particle.style.fontSize = '24px';
+                particle.style.pointerEvents = 'none';
+                particle.style.zIndex = '9999';
+                particle.style.animation = `burst 1s ease-out forwards`;
+                
+                const angle = (i / 12) * 360;
+                const velocity = 100 + Math.random() * 100;
+                const rad = angle * Math.PI / 180;
+                const tx = Math.cos(rad) * velocity;
+                const ty = Math.sin(rad) * velocity;
+                
+                particle.style.setProperty('--tx', tx + 'px');
+                particle.style.setProperty('--ty', ty + 'px');
+                
+                document.body.appendChild(particle);
+                
+                setTimeout(() => particle.remove(), 1000);
+            }
+        }
+
+        // Add burst animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes burst {
+                0% {
+                    transform: translate(0, 0) scale(1);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translate(var(--tx), var(--ty)) scale(0);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize
+        createFloatingHearts();
+
+        // Parallax effect
+        document.addEventListener('mousemove', (e) => {
+            const hearts = document.querySelectorAll('.heart');
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+            
+            hearts.forEach((heart, index) => {
+                const speed = (index + 1) * 0.5;
+                const x = (window.innerWidth / 2 - e.clientX) * speed / 100;
+                const y = (window.innerHeight / 2 - e.clientY) * speed / 100;
+                heart.style.transform += ` translate(${x}px, ${y}px)`;
+            });
+        });
+
+        // Prevent right click to keep it mysterious
+        document.addEventListener('contextmenu', (e) => {
+            if (e.target.closest('.share-banner')) return;
+            e.preventDefault();
+        });
+    </script>
+</body>
+</html>
